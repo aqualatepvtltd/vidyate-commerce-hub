@@ -195,7 +195,7 @@ const Home: React.FC = () => {
             <span className="material-symbols-rounded text-sm">verified</span>
             Quality Assurance
           </div>
-          <h2 className="text-3xl md:text-5xl font-black" style={{ color: 'var(--text-main)' }}>Why Vidyate Commerce HUb?</h2>
+          <h2 className="text-3xl md:text-5xl font-black" style={{ color: 'var(--text-main)' }}>Why Vidyate Commerce Hub?</h2>
           <p className="opacity-60 text-sm md:text-lg max-w-xl mx-auto font-medium leading-relaxed">
             We are more than a repository of study notes. We provide a full-stack, hyper-organized, and double-checked commerce learning landscape.
           </p>
