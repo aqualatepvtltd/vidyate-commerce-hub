@@ -1,0 +1,6 @@
+{
+  "name": "Vidyate Commerce Hub",
+  "description": "Vidyate Commerce Hub: India's premier platform for Commerce, B.Com, M.Com, CA, CS & Class 11-12 students. Access verified notes, textbooks, career guidance, and exam preparation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
