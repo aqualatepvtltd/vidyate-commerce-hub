@@ -17,8 +17,7 @@ const About: React.FC = () => {
           <div className="absolute top-0 left-1/4 w-64 h-64 bg-[#10B981]/10 rounded-full blur-[100px] animate-pulse"></div>
           <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-[#8B5CF6]/10 rounded-full blur-[100px] animate-pulse delay-500"></div>
         </div>
-        
-        <span className="text-[#10B981] font-black text-[10px] tracking-[0.4em] uppercase mb-6 block">The Commerce Hub Manifesto</span>
+      
         <h1 className="text-4xl md:text-7xl font-black mb-6 leading-[1.15] tracking-tighter" style={{ color: 'var(--text-main)' }}>
           Dedicated to <br/>
           <span className="text-[#10B981]">Analytical</span> Clarity.

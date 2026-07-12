@@ -10,9 +10,9 @@ const GetCertified: React.FC = () => {
   const [filter, setFilter] = useState<'advance' | 'basic' | 'quiz'>('advance');
 
   const filters = [
-    { id: 'advance', label: 'Advance Programs', color: '#10B981' },
-    { id: 'basic', label: 'Basic Foundations', color: '#059669' },
-    { id: 'quiz', label: 'National Quizzes', color: '#8B5CF6' },
+    { id: 'advance', label: 'Advance', color: '#10B981' },
+    { id: 'basic', label: 'Basic', color: '#059669' },
+    { id: 'quiz', label: 'Quiz', color: '#8B5CF6' },
   ];
 
   const { coursesToShow, suggestion } = useMemo(() => {
@@ -100,7 +100,6 @@ const GetCertified: React.FC = () => {
       {/* Header Section */}
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16">
         <div className="text-center mb-12 md:mb-16">
-          <span className="text-[#10B981] font-black text-[11px] tracking-[0.3em] uppercase mb-4 block">Professional Credentials</span>
           <h1
             className="text-4xl md:text-6xl font-black tracking-tight mb-4"
             style={{ color: 'var(--text-main)' }}
@@ -175,10 +174,10 @@ const GetCertified: React.FC = () => {
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute top-1/2 right-4 -translate-y-1/2 opacity-30 hover:opacity-80 transition-opacity"
+                className="absolute top-1/2 -translate-y-1/2 opacity-30 hover:opacity-80 transition-opacity "
                 aria-label="Clear search"
               >
-                <span className="material-symbols-rounded text-lg" style={{ color: 'var(--text-main)' }}>close</span>
+                <span className="material-symbols-rounded absolute right-4 top-1/2 -translate-y-1/2" style={{ color: 'var(--text-main)' }}>close</span>
               </button>
             )}
           </div>
@@ -262,12 +261,7 @@ const GetCertified: React.FC = () => {
 
                     <p className="opacity-60 text-xs leading-relaxed font-medium mb-4">{course.description}</p>
 
-                    <div className="flex items-center gap-4 text-xs opacity-60 mb-6" style={{ color: 'var(--text-main)' }}>
-                      <div className="flex items-center gap-1">
-                        <span className="material-symbols-rounded text-base text-[#10B981]">schedule</span>
-                        <span>{course.duration}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-4 text-xs opacity-60 mb-6" style={{ color: 'var(--text-main)' }}>                      <div className="flex items-center gap-1">
                         <span className="material-symbols-rounded text-base text-[#10B981]">verified</span>
                         <span>Official Certification</span>
                       </div>
@@ -312,7 +306,7 @@ const GetCertified: React.FC = () => {
               <ul className="space-y-2 text-xs md:text-sm opacity-75 list-disc pl-4" style={{ color: 'var(--text-main)' }}>
                 <li>Work through digital manuals completely at your own pace before attempting tests.</li>
                 <li>Clear proctoring checkpoints (camera + mic validations) to open advanced exam papers.</li>
-                <li>Reach a passing tier of 60% or higher.</li>
+                <li>Reach a passing tier of 75% or higher.</li>
                 <li>An official, securely signed digital certificate will be dispatched directly to your primary email address within 24 hours.</li>
                 <li>Share your achievements directly on LinkedIn or append verified credentials to your resumes.</li>
               </ul>

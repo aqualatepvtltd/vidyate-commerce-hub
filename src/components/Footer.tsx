@@ -8,14 +8,9 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
           {/* Left Column Description */}
           <div className="md:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#10B981] to-[#059669] flex items-center justify-center text-white shadow-md">
-                <span className="material-symbols-rounded text-lg font-black">account_balance</span>
-              </div>
-              <span className="text-xs font-black uppercase tracking-[0.2em] text-[#10B981]">
-                Vidyate Commerce
-              </span>
-            </div>
+            <Link to="/" className="flex items-center group select-none">
+              <img src="https://vidyate-commerce-hub.vercel.app/vidyate-commerce-main-logo.webp" alt="Vidyate Commerce Hub Logo" className="h-14 w-14 object-contain rounded-full group-hover:scale-105 transition-transform" />
+            </Link>
             <p className="opacity-50 text-xs max-w-sm leading-relaxed font-medium">
               India's premier digital academic hub for B.Com, M.Com, CA, CS, CMA, and Class 11-12 Boards. We simplify analytical commerce, financial ledgers, and indirect tax guidelines.
             </p>
@@ -77,15 +72,7 @@ const Footer: React.FC = () => {
 
         {/* Bottom Copyright Meta */}
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] font-black uppercase tracking-wider text-theme-muted">
-          <p>© {new Date().getFullYear()} Vidyate Commerce Hub. All rights reserved.</p>
-          <div className="flex gap-6">
-            <a href="https://vidyate-commerce-hub.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-[#10B981]">
-              Academic Blog
-            </a>
-            <a href="mailto:vidyatecommercehub@gmail.com" className="hover:text-[#10B981]">
-              Help Desk Support
-            </a>
-          </div>
+          <p className="w-full text-center sm:text-left">© {new Date().getFullYear()} Vidyate Commerce Hub. All rights reserved.</p>
         </div>
       </div>
     </footer>

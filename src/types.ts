@@ -49,7 +49,6 @@ export interface CertificationCourse {
   id: string;
   name: string;
   description: string;
-  duration: string;
   difficulty: 'Basic' | 'Advance' | 'Quiz';
   materialLink: string;
   testLink: string;
