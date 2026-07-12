@@ -76,7 +76,7 @@ const GetCertified: React.FC = () => {
     {
       number: 3,
       title: 'Claim Certification',
-      description: 'Score over 60% on evaluation to get your verified certificate.'
+      description: 'Score over 75% on evaluation to get your verified certificate.'
     }
   ];
 
