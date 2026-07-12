@@ -106,7 +106,6 @@ const Contact: React.FC = () => {
       />
       {/* Hero Header */}
       <div className="text-center mb-16">
-        <span className="text-[#10B981] font-black text-[11px] tracking-[0.3em] uppercase mb-4 block">Central Support Desk</span>
         <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter" style={{ color: 'var(--text-main)' }}>
           Write to Our <span className="opacity-30">Academic Board.</span>
         </h1>

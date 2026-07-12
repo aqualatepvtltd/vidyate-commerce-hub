@@ -13,7 +13,6 @@ import Footer from './components/Footer';
 const Home = React.lazy(() => import('./pages/Home'));
 const GetCertified = React.lazy(() => import('./pages/GetCertified'));
 const PaidTestPage = React.lazy(() => import('./pages/PaidTestPage'));
-const CourseDashboard = React.lazy(() => import('./pages/CourseDashboard'));
 const About = React.lazy(() => import('./pages/About'));
 const Contact = React.lazy(() => import('./pages/Contact'));
 const Privacy = React.lazy(() => import('./pages/Privacy'));
@@ -74,7 +73,6 @@ export default function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
-              <Route path="/:courseId" element={<CourseDashboard />} />
             </Routes>
           </React.Suspense>
         </main>
