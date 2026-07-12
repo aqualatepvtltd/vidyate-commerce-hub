@@ -6,4 +6,4 @@ Allow: /
 Disallow: /node_modules/
 
 # Sitemap reference for search engines
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://vidyate-commerce-hub.vercel.app/sitemap.xml
