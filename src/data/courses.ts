@@ -1,5 +1,7 @@
 import { Course, CertificationCourse } from '../types';
 
+export const COURSES: Record<string, Course> = {};
+
 export const CERTIFICATION_COURSES: CertificationCourse[] = [
   {
     id: 'forensic-accounting-masterclass',
