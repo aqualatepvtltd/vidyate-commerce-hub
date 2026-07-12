@@ -10,13 +10,14 @@ const Home: React.FC = () => {
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const boards = [
-    { name: 'ICAI Board', desc: 'CA Standard Curriculum', img: 'https://img.icons8.com/color/48/000000/india.png' },
-    { name: 'ICSI India', desc: 'Company Secretary', img: 'https://img.icons8.com/color/48/000000/scales.png' },
-    { name: 'CBSE Commerce', desc: 'Class 11-12 Foundations', img: 'https://img.icons8.com/color/48/000000/student-center.png' },
-    { name: 'UGC India', desc: 'B.Com & M.Com Standards', img: 'https://img.icons8.com/color/48/000000/university.png' },
-    { name: 'NCERT Syllabus', desc: 'Class 11 & 12 Academic Core', img: 'https://img.icons8.com/color/48/000000/book.png' },
-    { name: 'NTA Commerce', desc: 'CUET Entrance Exams', img: 'https://img.icons8.com/color/48/000000/test-passed.png' },
-    { name: 'ICWA / CMA', desc: 'Cost Management Accounting', img: 'https://img.icons8.com/color/48/000000/calculator.png' }
+    { name: 'Google', img: '/google.png' },
+    { name: 'Bharat', img: '/bharat.png' },
+    { name: 'DPIIT', img: '/dpiit.png' },
+    { name: 'DOAJ', img: '/doaj.svg' },
+    { name: 'GitHub', img: '/github.png' },
+    { name: 'Slideshare', img: '/slideshare.png' },
+    { name: 'Scribd', img: '/scribd.png' },
+    { name: 'Zenodo', img: '/zenedo.png' },
   ];
 
   // Duplicate for seamless infinite scrolling row
@@ -109,7 +110,7 @@ const Home: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="opacity-60 text-sm md:text-lg max-w-xxl mb-8 md:mb-10 font-medium leading-relaxed px-2" 
+          className="opacity-60 text-sm md:text-lg max-w-xxl mb-8 md:mb-8 font-medium leading-relaxed px-2" 
           style={{ color: 'var(--text-main)' }}
         >
           The ultimate digital academic ecosystem for commerce students. Access expert-verified B.Com lectures, CA Foundation ledger guidelines, board exam question banks, and taxation study maps.
@@ -119,7 +120,7 @@ const Home: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 w-full sm:w-auto px-4 sm:px-0"
+          className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 w-full sm:w-auto px-4 sm:px-0 mb-10"
         >
           <Link
             to="/get-certified"
@@ -133,7 +134,7 @@ const Home: React.FC = () => {
         
         {/* Infinite Text-Badge Scroller representing boards instead of broken images */}
         <div 
-          className="w-full max-w-4xl mt-16 p-4 rounded-xl border overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]"
+          className="w-full max-w-4xl mt-10 p-4 rounded-xl border overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]"
           style={{ borderColor: 'var(--glass-border)', backgroundColor: 'var(--glass-bg)' }}
         >
           <div 
@@ -147,17 +148,9 @@ const Home: React.FC = () => {
             {extendedBoards.map((board, index) => (
               <div 
                 key={index} 
-                className="flex-shrink-0 px-4 py-3 rounded-xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.04] transition-all flex items-center gap-4 text-left"
+                className="flex-shrink-0 p-3 rounded-full border border-white/5 bg-white/[0.01] hover:bg-white/[0.04] transition-all flex items-center justify-center"
               >
-                <img src={board.img} alt={`${board.name} logo`} className="w-8 h-8" />
-                <div>
-                  <span className="text-xs font-black tracking-tight" style={{ color: 'var(--text-main)' }}>
-                    {board.name}
-                  </span>
-                  <span className="block text-[9px] opacity-40 font-medium">
-                    {board.desc}
-                  </span>
-                </div>
+                <img src={board.img} alt={`${board.name} logo`} className="h-8" />
               </div>
             ))}
           </div>
@@ -202,7 +195,7 @@ const Home: React.FC = () => {
             <span className="material-symbols-rounded text-sm">verified</span>
             Quality Assurance
           </div>
-          <h2 className="text-3xl md:text-5xl font-black" style={{ color: 'var(--text-main)' }}>Why Vidyate?</h2>
+          <h2 className="text-3xl md:text-5xl font-black" style={{ color: 'var(--text-main)' }}>Why Vidyate Commerce HUb?</h2>
           <p className="opacity-60 text-sm md:text-lg max-w-xl mx-auto font-medium leading-relaxed">
             We are more than a repository of study notes. We provide a full-stack, hyper-organized, and double-checked commerce learning landscape.
           </p>
