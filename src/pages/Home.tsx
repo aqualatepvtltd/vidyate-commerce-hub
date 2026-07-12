@@ -150,7 +150,7 @@ const Home: React.FC = () => {
                 key={index} 
                 className="flex-shrink-0 p-3 rounded-full border border-white/5 bg-white/[0.01] hover:bg-white/[0.04] transition-all flex items-center justify-center"
               >
-                <img src={board.img} alt={`${board.name} logo`} className="h-8" />
+                <img src={board.img} alt={`${board.name} logo`} className="h-6" />
               </div>
             ))}
           </div>
