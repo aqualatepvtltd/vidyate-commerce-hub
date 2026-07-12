@@ -7,7 +7,7 @@ const PaidTestPage: React.FC = () => {
   const location = useLocation();
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioVisualizerRef = useRef<HTMLDivElement>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | undefined>(undefined);
 
   const [stream, setStream] = useState<MediaStream | null>(null);
   const [testLink, setTestLink] = useState<string>('');
