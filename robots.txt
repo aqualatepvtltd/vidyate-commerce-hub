@@ -1,9 +1,4 @@
-# Vidyate Commerce Hub - Robots.txt
-# Allow all search engines to crawl the site
-
 User-agent: *
 Allow: /
-Disallow: /node_modules/
 
-# Sitemap reference for search engines
 Sitemap: https://vidyate-commerce-hub.vercel.app/sitemap.xml
