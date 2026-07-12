@@ -70,7 +70,7 @@ const Header: React.FC<HeaderProps> = ({ isLightMode, toggleTheme, isMobileMenuO
           {/* Mobile Drawer Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden w-10 h-10 rounded-xl glass border flex items-center justify-center transition-all"
+            className="md:hidden w-10 h-10 rounded-xl border flex items-center justify-center transition-all"
             style={{ borderColor: 'var(--glass-border)' }}
             aria-label="Toggle Navigation Menu"
           >
@@ -83,7 +83,10 @@ const Header: React.FC<HeaderProps> = ({ isLightMode, toggleTheme, isMobileMenuO
 
       {/* Responsive Mobile Navigation Drawer */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass border-b border-t absolute top-20 left-0 w-full p-4 space-y-2 animate-subtle-fade shadow-2xl" style={{ borderColor: 'var(--glass-border)' }}>
+        <div
+          className="md:hidden backdrop-blur-xxl border-b border-t absolute top-20 left-0 w-full p-4 space-y-2 animate-subtle-fade"
+          style={{ borderColor: 'var(--glass-border)', backgroundColor: 'var(--glass-bg)', opacity: 1 }}
+        >
           <NavLink to="/" end onClick={() => setIsMobileMenuOpen(false)} className={mobileNavLinkClass}>Home</NavLink>
           <NavLink to="/get-certified" onClick={() => setIsMobileMenuOpen(false)} className={mobileNavLinkClass}>Get Certified</NavLink>
           <NavLink to="/about" onClick={() => setIsMobileMenuOpen(false)} className={mobileNavLinkClass}>About</NavLink>

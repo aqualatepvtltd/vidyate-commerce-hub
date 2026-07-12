@@ -10,13 +10,13 @@ const Home: React.FC = () => {
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const boards = [
-    { name: 'ICAI Board', desc: 'CA Standard Curriculum' },
-    { name: 'ICSI India', desc: 'Company Secretary' },
-    { name: 'CBSE Commerce', desc: 'Class 11-12 Foundations' },
-    { name: 'UGC India', desc: 'B.Com & M.Com Standards' },
-    { name: 'NCERT Syllabus', desc: 'Class 11 & 12 Academic Core' },
-    { name: 'NTA Commerce', desc: 'CUET Entrance Exams' },
-    { name: 'ICWA / CMA', desc: 'Cost Management Accounting' }
+    { name: 'ICAI Board', desc: 'CA Standard Curriculum', img: 'https://img.icons8.com/color/48/000000/india.png' },
+    { name: 'ICSI India', desc: 'Company Secretary', img: 'https://img.icons8.com/color/48/000000/scales.png' },
+    { name: 'CBSE Commerce', desc: 'Class 11-12 Foundations', img: 'https://img.icons8.com/color/48/000000/student-center.png' },
+    { name: 'UGC India', desc: 'B.Com & M.Com Standards', img: 'https://img.icons8.com/color/48/000000/university.png' },
+    { name: 'NCERT Syllabus', desc: 'Class 11 & 12 Academic Core', img: 'https://img.icons8.com/color/48/000000/book.png' },
+    { name: 'NTA Commerce', desc: 'CUET Entrance Exams', img: 'https://img.icons8.com/color/48/000000/test-passed.png' },
+    { name: 'ICWA / CMA', desc: 'Cost Management Accounting', img: 'https://img.icons8.com/color/48/000000/calculator.png' }
   ];
 
   // Duplicate for seamless infinite scrolling row
@@ -91,34 +91,25 @@ const Home: React.FC = () => {
       />
       
       {/* Hero Section */}
-      <section className="min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center text-center relative overflow-visible pt-16 pb-12 md:py-0">
-        <motion.div 
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass border text-[10px] md:text-xs font-bold mb-6 md:mb-8 uppercase tracking-[0.1em]" 
-          style={{ borderColor: 'var(--glass-border)', color: 'var(--text-main)' }}
-        >
-          <span className="flex h-1.5 w-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
-          <span className="opacity-80">New: 2026 Direct Taxes & Budget Notes are Live</span>
-        </motion.div>
+      <section className="min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center text-center relative overflow-visible pt-16 mt-16 pb-12 md:py-0">
+
 
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-4 md:mb-6 leading-[1.08]" 
+          className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-4 md:mb-6 leading-[1.08]" 
           style={{ color: 'var(--text-main)' }}
         >
           Accelerate Your
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#10B981] via-[#059669] to-[#8B5CF6] drop-shadow-sm pr-1 block sm:inline"> Commerce </span>Journey
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#10B981] via-[#059669] to-[#8B5CF6] pr-1 block sm:inline"> Commerce </span>Journey
         </motion.h1>
 
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="opacity-60 text-sm md:text-lg max-w-xl mb-8 md:mb-10 font-medium leading-relaxed px-2" 
+          className="opacity-60 text-sm md:text-lg max-w-xxl mb-8 md:mb-10 font-medium leading-relaxed px-2" 
           style={{ color: 'var(--text-main)' }}
         >
           The ultimate digital academic ecosystem for commerce students. Access expert-verified B.Com lectures, CA Foundation ledger guidelines, board exam question banks, and taxation study maps.
@@ -156,14 +147,17 @@ const Home: React.FC = () => {
             {extendedBoards.map((board, index) => (
               <div 
                 key={index} 
-                className="flex-shrink-0 px-4 py-2 rounded-lg border border-white/5 bg-white/[0.01] hover:bg-white/[0.04] transition-all flex flex-col items-start gap-0.5 text-left"
+                className="flex-shrink-0 px-4 py-3 rounded-xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.04] transition-all flex items-center gap-4 text-left"
               >
-                <span className="text-xs font-black tracking-tight" style={{ color: 'var(--text-main)' }}>
-                  {board.name}
-                </span>
-                <span className="text-[9px] opacity-40 font-medium">
-                  {board.desc}
-                </span>
+                <img src={board.img} alt={`${board.name} logo`} className="w-8 h-8" />
+                <div>
+                  <span className="text-xs font-black tracking-tight" style={{ color: 'var(--text-main)' }}>
+                    {board.name}
+                  </span>
+                  <span className="block text-[9px] opacity-40 font-medium">
+                    {board.desc}
+                  </span>
+                </div>
               </div>
             ))}
           </div>
