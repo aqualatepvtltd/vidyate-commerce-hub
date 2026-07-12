@@ -23,18 +23,8 @@ const Header: React.FC<HeaderProps> = ({ isLightMode, toggleTheme, isMobileMenuO
     <header className="sticky top-0 z-40 w-full glass border-b transition-all duration-300" style={{ borderColor: 'var(--glass-border)' }}>
       <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
         {/* Logo Brand */}
-        <Link to="/" className="flex items-center gap-3 group select-none">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#10B981] to-[#059669] flex items-center justify-center text-white shadow-lg shadow-[#10B981]/10 group-hover:scale-105 transition-transform">
-            <span className="material-symbols-rounded text-2xl font-black">account_balance</span>
-          </div>
-          <div>
-            <span className="text-sm font-black tracking-tighter uppercase block" style={{ color: 'var(--text-main)' }}>
-              Vidyate
-            </span>
-            <span className="text-[9px] font-black uppercase tracking-[0.2em] block text-[#10B981]">
-              Commerce Hub
-            </span>
-          </div>
+        <Link to="/" className="flex items-center group select-none">
+          <img src="https://vidyate-commerce-hub.vercel.app/vidyate-commerce-main-logo.webp" alt="Vidyate Commerce Hub Logo" className="h-14 w-14 object-contain rounded-full group-hover:scale-105 transition-transform" />
         </Link>
 
         {/* Desktop Navigation Link Actions */}
@@ -58,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ isLightMode, toggleTheme, isMobileMenuO
           {/* Light/Dark Toggle */}
           <button
             onClick={toggleTheme}
-            className="w-10 h-10 rounded-xl glass border hover:scale-105 active:scale-95 transition-all flex items-center justify-center cursor-pointer"
+            className="w-10 h-10 rounded-xl glass border transition-all flex items-center justify-center cursor-pointer"
             style={{ borderColor: 'var(--glass-border)' }}
             aria-label="Toggle Theme Mode"
           >
