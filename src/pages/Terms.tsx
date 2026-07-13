@@ -10,7 +10,7 @@ const Terms: React.FC = () => {
         description="Review the Terms and Conditions for using Vidyate Commerce Hub's academic platform, textbooks store, and evaluation systems."
         keywords="Terms of Service, Usage Policy, Academic Disclaimer, Vidyate Rules, Student Agreement"
       />
-      <Link to="/" className="inline-flex items-center gap-2 text-theme-muted hover:text-[#10B981] transition-all font-black text-[10px] uppercase tracking-widest mb-8">
+      <Link to="/" className="inline-flex items-center gap-2 text-theme-muted hover:text-[#10B981] transition-colors font-black text-[10px] uppercase tracking-widest mb-8">
         <span className="material-symbols-rounded text-sm">home</span>
         Back to Home
       </Link>

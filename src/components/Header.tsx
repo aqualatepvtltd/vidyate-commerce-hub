@@ -10,12 +10,12 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ isLightMode, toggleTheme, isMobileMenuOpen, setIsMobileMenuOpen }) => {
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `text-xs font-black uppercase tracking-wider transition-all duration-300 hover:text-[#10B981] ${
+    `text-xs font-black uppercase tracking-wider transition-colors duration-300 hover:text-[#10B981] ${
       isActive ? 'text-[#10B981]' : 'opacity-70'
     }`;
 
   const mobileNavLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `block py-3 px-4 text-sm font-black uppercase tracking-wider transition-all rounded-xl hover:bg-[#10B981]/10 ${
+    `block py-3 px-4 text-sm font-black uppercase tracking-wider transition rounded-xl hover:bg-[#10B981]/10 ${
       isActive ? 'text-[#10B981] bg-[#10B981]/5' : 'opacity-80'
     }`;
 
@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ isLightMode, toggleTheme, isMobileMenuO
           {/* Light/Dark Toggle */}
           <button
             onClick={toggleTheme}
-            className="w-10 h-10 rounded-xl glass border transition-all flex items-center justify-center cursor-pointer"
+            className="w-10 h-10 rounded-xl glass border transition-colors flex items-center justify-center cursor-pointer"
             style={{ borderColor: 'var(--glass-border)' }}
             aria-label="Toggle Theme Mode"
           >
@@ -60,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({ isLightMode, toggleTheme, isMobileMenuO
           {/* Mobile Drawer Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden w-10 h-10 rounded-xl border flex items-center justify-center transition-all"
+            className="md:hidden w-10 h-10 rounded-xl border flex items-center justify-center transition-colors"
             style={{ borderColor: 'var(--glass-border)' }}
             aria-label="Toggle Navigation Menu"
           >

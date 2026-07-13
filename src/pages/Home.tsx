@@ -124,7 +124,7 @@ const Home: React.FC = () => {
         >
           <Link
             to="/get-certified"
-            className="w-full sm:w-auto px-6 md:px-8 py-3.5 md:py-4 rounded-xl bg-[#10B981] text-white font-black text-xs md:text-sm hover:shadow-[0_15px_30px_rgba(16,185,129,0.3)] hover:-translate-y-1 transition-all active:scale-95 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-6 md:px-8 py-3.5 md:py-4 rounded-xl bg-[#10B981] text-white font-black text-xs md:text-sm hover:shadow-[0_15px_30px_rgba(16,185,129,0.3)] hover:-translate-y-1 transition active:scale-95 flex items-center justify-center gap-2"
             style={{ textDecoration: 'none' }}
           >
             <span className="material-symbols-rounded text-base">verified</span>
@@ -148,7 +148,7 @@ const Home: React.FC = () => {
             {extendedBoards.map((board, index) => (
               <div 
                 key={index} 
-                className="flex-shrink-0 p-3 rounded-xl bg-white transition-all flex items-center justify-center"
+                className="flex-shrink-0 p-3 rounded-xl bg-white transition flex items-center justify-center"
               >
                 <img src={board.img} alt={`${board.name} logo`} className="h-6" />
               </div>
@@ -179,7 +179,7 @@ const Home: React.FC = () => {
             </p>
             <Link 
               to="/get-certified"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-[#10B981] text-white rounded-xl font-black text-xs md:text-sm hover:shadow-[0_15px_30px_rgba(16,185,129,0.3)] hover:-translate-y-1 transition-all active:scale-95"
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-[#10B981] text-white rounded-xl font-black text-xs md:text-sm hover:shadow-[0_15px_30px_rgba(16,185,129,0.3)] hover:-translate-y-1 transition active:scale-95"
             >
               <span>Explore Certification Programs</span>
               <span className="material-symbols-rounded group-hover:translate-x-1 transition-transform">arrow_forward</span>
@@ -206,7 +206,7 @@ const Home: React.FC = () => {
             <button
               key={index}
               onClick={() => setActiveWhyVidyateTab(index)}
-              className={`p-6 text-left glass rounded-2xl border transition-all duration-300 group ${activeWhyVidyateTab === index ? 'shadow-xl -translate-y-1' : 'hover:shadow-lg'}`}
+              className={`p-6 text-left glass rounded-2xl border transition duration-300 group ${activeWhyVidyateTab === index ? 'shadow-xl -translate-y-1' : 'hover:shadow-lg'}`}
               style={{ borderColor: activeWhyVidyateTab === index ? tab.color : 'var(--glass-border)' }}
             >
               <div className="flex items-center gap-4">
@@ -223,7 +223,7 @@ const Home: React.FC = () => {
           {whyVidyateTabs.map((tab, index) => (
             <div
               key={index}
-              className={`glass p-8 md:p-10 rounded-2xl border transition-all duration-500 ${activeWhyVidyateTab === index ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 absolute top-0 left-0 w-full pointer-events-none'}`}
+              className={`glass p-8 md:p-10 rounded-2xl border transition duration-500 ${activeWhyVidyateTab === index ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 absolute top-0 left-0 w-full pointer-events-none'}`}
               style={{ borderColor: 'var(--glass-border)' }}
             >
               <p className="text-sm md:text-base leading-relaxed font-medium opacity-75" style={{ color: 'var(--text-main)' }}>
@@ -251,7 +251,7 @@ const Home: React.FC = () => {
             </p>
             <Link 
               to="/about"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-[#10B981] text-white rounded-xl font-black text-xs md:text-sm hover:shadow-[0_15px_30px_rgba(16,185,129,0.3)] hover:-translate-y-1 transition-all active:scale-95"
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-[#10B981] text-white rounded-xl font-black text-xs md:text-sm hover:shadow-[0_15px_30px_rgba(16,185,129,0.3)] hover:-translate-y-1 transition active:scale-95"
             >
               <span>Discover Our Mission</span>
               <span className="material-symbols-rounded group-hover:translate-x-1 transition-transform text-sm">arrow_forward</span>
@@ -303,13 +303,13 @@ const Home: React.FC = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="example@gmail.com"
-                      className="w-full glass border rounded-xl py-4 px-5 placeholder-slate-400 focus:outline-none focus:border-[#10B981]/50 focus:ring-4 focus:ring-[#10B981]/5 transition-all text-xs md:text-sm font-medium"
+                      className="w-full glass border rounded-xl py-4 px-5 placeholder-slate-400 focus:outline-none focus:border-[#10B981]/50 focus:ring-4 focus:ring-[#10B981]/5 transition text-xs md:text-sm font-medium"
                       style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)', color: 'var(--text-main)' }}
                     />
                     <button 
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full px-6 py-3.5 rounded-xl md:absolute md:right-1.5 md:top-1.5 md:w-auto md:py-2.5 bg-[#10B981] text-white font-black text-xs transition-all hover:shadow-lg active:scale-95 disabled:opacity-50 flex items-center justify-center gap-2"
+                      className="w-full px-6 py-3.5 rounded-xl md:absolute md:right-1.5 md:top-1.5 md:w-auto md:py-2.5 bg-[#10B981] text-white font-black text-xs transition hover:shadow-lg active:scale-95 disabled:opacity-50 flex items-center justify-center gap-2"
                     >
                       {isSubmitting ? (
                         <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>

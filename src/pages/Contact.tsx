@@ -68,7 +68,7 @@ const Contact: React.FC = () => {
     }
   ];
 
-  const inputClasses = "w-full glass rounded-xl p-4 transition-all focus:outline-none ring-slate-500/0 focus:ring-2 focus:ring-[#10B981]/50 border-slate-500/10 focus:border-[#10B981] text-xs font-medium";
+  const inputClasses = "w-full glass rounded-xl p-4 transition focus:outline-none ring-slate-500/0 focus:ring-2 focus:ring-[#10B981]/50 border-slate-500/10 focus:border-[#10B981] text-xs font-medium";
 
   if (isSubmitted) {
     return (
@@ -88,7 +88,7 @@ const Contact: React.FC = () => {
               setIsSubmitted(false);
               setFormData({ name: '', email: '', subject: '', message: '' });
             }}
-            className="px-8 py-3.5 bg-[#10B981] text-white font-black rounded-xl text-xs uppercase tracking-widest hover:shadow-lg active:scale-95 transition-all"
+            className="px-8 py-3.5 bg-[#10B981] text-white font-black rounded-xl text-xs uppercase tracking-widest hover:shadow-lg active:scale-95 transition"
           >
             Submit New Ticket
           </button>
@@ -121,7 +121,7 @@ const Contact: React.FC = () => {
             {contactInfo.map((info, idx) => (
               <div 
                 key={idx}
-                className="glass p-8 rounded-2xl border transition-all hover:-translate-y-1 hover:shadow-xl group"
+                className="glass p-8 rounded-2xl border transition hover:-translate-y-1 hover:shadow-xl group"
                 style={{ borderColor: 'var(--glass-border)' }}
               >
                 <div className="flex items-start gap-5">
@@ -216,7 +216,7 @@ const Contact: React.FC = () => {
             <button 
               type="submit"
               disabled={isLoading}
-              className="w-full py-4 bg-[#10B981] text-white font-black rounded-xl text-xs uppercase tracking-widest shadow-lg hover:shadow-[0_15px_30px_rgba(16,185,129,0.3)] hover:-translate-y-0.5 active:scale-95 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+              className="w-full py-4 bg-[#10B981] text-white font-black rounded-xl text-xs uppercase tracking-widest shadow-lg hover:shadow-[0_15px_30px_rgba(16,185,129,0.3)] hover:-translate-y-0.5 active:scale-95 transition disabled:opacity-50 flex items-center justify-center gap-2"
             >
               {isLoading ? (
                 <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>

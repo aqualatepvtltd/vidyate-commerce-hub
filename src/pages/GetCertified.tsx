@@ -7,20 +7,20 @@ import { CertificationCourse } from '../types';
 const GetCertified: React.FC = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
-  const [filter, setFilter] = useState<'advance' | 'basic' | 'quiz'>('advance');
+  const [filter, setFilter] = useState<'premium' | 'advance' | 'basic'>('premium');
 
   const filters = [
-    { id: 'advance', label: 'Advance', color: '#10B981' },
-    { id: 'basic', label: 'Basic', color: '#059669' },
-    { id: 'quiz', label: 'Quiz', color: '#8B5CF6' },
+    { id: 'premium', label: 'Premium', color: '#ff0909' } as const,
+    { id: 'advance', label: 'Advance', color: '#0bc366' } as const,
+    { id: 'basic', label: 'Basic', color: '#1f98ff' } as const,
   ];
 
   const { coursesToShow, suggestion } = useMemo(() => {
     const getCoursesByFilter = (f: typeof filter) => {
       switch (f) {
-        case 'advance': return CERTIFICATION_COURSES.filter(c => c.isPaid);
-        case 'basic': return CERTIFICATION_COURSES.filter(c => !c.isPaid && !c.quiz);
-        case 'quiz': return CERTIFICATION_COURSES.filter(c => c.quiz);
+        case 'premium': return CERTIFICATION_COURSES.filter(c => c.courseType === 'premium');
+        case 'advance': return CERTIFICATION_COURSES.filter(c => c.courseType === 'advance');
+        case 'basic': return CERTIFICATION_COURSES.filter(c => c.courseType === 'basic');
         default: return [];
       }
     };
@@ -49,10 +49,7 @@ const GetCertified: React.FC = () => {
 
     // If not in current filter, find which filter it belongs to
     const firstMatch = allMatchingCourses[0];
-    let targetFilter: 'advance' | 'basic' | 'quiz' | null = null;
-    if (firstMatch.isPaid) targetFilter = 'advance';
-    else if (firstMatch.quiz) targetFilter = 'quiz';
-    else if (!firstMatch.isPaid && !firstMatch.quiz) targetFilter = 'basic';
+    const targetFilter = firstMatch.courseType;
 
     if (targetFilter && targetFilter !== filter) {
       return { coursesToShow: [], suggestion: { type: 'switch_filter' as const, target: targetFilter } };
@@ -116,7 +113,7 @@ const GetCertified: React.FC = () => {
           {steps.map((step, idx) => (
             <div
               key={step.number}
-              className="relative p-6 md:p-8 rounded-2xl glass border transition-all duration-300 hover:scale-95"
+              className="relative p-6 md:p-8 rounded-2xl glass border transition duration-300 hover:scale-95"
               style={{
                 borderColor: 'var(--glass-border)',
                 backgroundColor: 'var(--glass-bg)'
@@ -187,8 +184,8 @@ const GetCertified: React.FC = () => {
             {filters.map(f => (
               <button
                 key={f.id}
-                onClick={() => setFilter(f.id as any)}
-                className={`flex-1 px-4 py-2.5 rounded-lg font-black text-[10px] md:text-xs uppercase tracking-wider transition-all duration-300 ${filter === f.id
+                onClick={() => setFilter(f.id)}
+                className={`flex-1 px-4 py-2.5 rounded-lg font-black text-[10px] md:text-xs uppercase tracking-wider transition duration-300 ${filter === f.id
                     ? 'text-white shadow-lg' // Active state
                     : 'opacity-60 hover:opacity-100' // Inactive state
                   }`}
@@ -217,7 +214,7 @@ const GetCertified: React.FC = () => {
               <p className="opacity-50 mt-2 mb-6 text-xs" style={{ color: 'var(--text-main)' }}>Click below to switch to the '{suggestion.target}' tab.</p>
               <button
                 onClick={() => setFilter(suggestion.target)}
-                className="px-8 py-3 rounded-xl bg-[#10B981] text-white font-black text-xs uppercase tracking-widest hover:shadow-lg active:scale-95 transition-all"
+                className="px-8 py-3 rounded-xl bg-[#10B981] text-white font-black text-xs uppercase tracking-widest hover:shadow-lg active:scale-95 transition"
               >
                 Switch to {suggestion.target}
               </button>
@@ -229,7 +226,7 @@ const GetCertified: React.FC = () => {
               {coursesToShow.map((course) => (
                 <div
                   key={course.id}
-                  className="group p-6 md:p-8 rounded-2xl glass border transition-all duration-300 animate-subtle-fade flex flex-col justify-between"
+                  className="group p-6 md:p-8 rounded-2xl glass border transition duration-300 animate-subtle-fade flex flex-col justify-between"
                   style={{
                     borderColor: 'var(--glass-border)',
                     backgroundColor: 'var(--glass-bg)'
@@ -241,18 +238,18 @@ const GetCertified: React.FC = () => {
                         {course.name}
                       </h3>
                       <div className="flex-shrink-0 flex items-center gap-2">
-                        {course.isPaid && (
+                        {course.courseType === 'premium' && (
+                          <span className="px-2 py-1 bg-[#ff0909] text-white text-[9px] font-black uppercase tracking-wider rounded-md">
+                            Premium
+                          </span>
+                        )}
+                        {course.courseType === 'advance' && (
                           <span className="px-2 py-1 bg-[#10B981] text-white text-[9px] font-black uppercase tracking-wider rounded-md">
                             Advance
                           </span>
                         )}
-                        {!course.isPaid && course.quiz && (
-                          <span className="px-2 py-1 bg-[#8B5CF6] text-white text-[9px] font-black uppercase tracking-wider rounded-md">
-                            QUIZ
-                          </span>
-                        )}
-                        {!course.isPaid && !course.quiz && (
-                          <span className="px-2 py-1 bg-[#059669] text-white text-[9px] font-black uppercase tracking-wider rounded-md">
+                        {course.courseType === 'basic' && (
+                          <span className="px-2 py-1 bg-[#1f98ff] text-white text-[9px] font-black uppercase tracking-wider rounded-md">
                             Basic
                           </span>
                         )}
@@ -272,7 +269,7 @@ const GetCertified: React.FC = () => {
                     {!course.quiz && (
                       <button
                         onClick={() => handleDownloadMaterial(course)}
-                        className="flex-1 px-4 py-3 rounded-xl font-black text-xs text-white transition-all duration-300 hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 bg-[#10B981]"
+                        className="flex-1 px-4 py-3 rounded-xl font-black text-xs text-white transition-transform duration-300 hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 bg-[#10B981]"
                       >
                         <span className="material-symbols-rounded text-base">download</span>
                         <span>Study Material</span>
@@ -281,7 +278,7 @@ const GetCertified: React.FC = () => {
 
                     <button
                       onClick={() => handleAttemptTest(course)}
-                      className={`px-4 py-3 rounded-xl font-black text-xs text-white transition-all duration-300 hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 ${course.quiz ? 'flex-1 bg-[#8B5CF6]' : 'flex-1 bg-[#059669]'}`}
+                      className={`px-4 py-3 rounded-xl font-black text-xs text-white transition-transform duration-300 hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 ${course.quiz ? 'flex-1 bg-[#8B5CF6]' : 'flex-1 bg-[#059669]'}`}
                     >
                       <span className="material-symbols-rounded text-base">assignment</span>
                       <span>{course.quiz ? 'Join National Quiz' : 'Begin Evaluation'}</span>
@@ -317,7 +314,7 @@ const GetCertified: React.FC = () => {
               href="https://drive.google.com/drive/folders/1Di_q89YdmxBItvWHV21W0T7YiumnomnS?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-xl glass border border-transparent font-bold text-xs transition-all hover:border-white/20 hover:bg-white/5 flex items-center justify-center gap-2"
+              className="px-6 py-3 rounded-xl glass border border-transparent font-bold text-xs transition hover:border-white/20 hover:bg-white/5 flex items-center justify-center gap-2"
               style={{ color: 'var(--text-main)' }}
             >
               <span className="material-symbols-rounded text-base">description</span>

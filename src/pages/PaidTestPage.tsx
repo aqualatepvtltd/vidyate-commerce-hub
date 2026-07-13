@@ -132,7 +132,7 @@ const PaidTestPage: React.FC = () => {
           <button 
             onClick={onAction} 
             disabled={status === 'pending' || status === 'checking'} 
-            className="w-full px-4 py-2.5 rounded-xl bg-[#10B981] hover:bg-[#10B981]/90 text-white font-black text-[10px] uppercase tracking-wider disabled:opacity-50 mt-4 transition-transform active:scale-95"
+            className="w-full px-4 py-2.5 rounded-xl bg-[#10B981] hover:bg-[#10B981]/90 text-white font-black text-[10px] uppercase tracking-wider disabled:opacity-50 mt-4 transition active:scale-95"
           >
             {status === 'pending' ? 'Verifying...' : status === 'checking' ? 'Testing Speed...' : actionText}
           </button>
@@ -178,7 +178,7 @@ const PaidTestPage: React.FC = () => {
           <p>We perform automated facial presence verification during evaluation.</p>
           <div className="mt-4 h-24 w-full rounded-xl overflow-hidden bg-black/40 relative">
             {cameraAccess === 'granted' ? (
-              <div className="w-full h-full rounded-xl glass flex flex-col items-center justify-center text-center">
+              <div className="w-full h-full rounded-xl glass flex flex-col items-center justify-center text-center animate-fade-in">
                 <span className="material-symbols-rounded text-3xl text-[#10B981]">verified_user</span>
                 <p className="text-[10px] font-black text-[#10B981] mt-1">IDENTITY VERIFIED</p>
               </div>
@@ -207,7 +207,7 @@ const PaidTestPage: React.FC = () => {
               </div>
             ) : (
               <div className="w-full h-full bg-black/20 rounded-md relative overflow-hidden flex flex-col justify-end p-2">
-                <div ref={audioVisualizerRef} className="h-1 bg-[#10B981] transition-all duration-100 rounded" style={{ width: 'var(--audio-level, 0%)' }}></div>
+                <div ref={audioVisualizerRef} className="h-1 bg-[#10B981] transition-transform duration-100 rounded" style={{ width: 'var(--audio-level, 0%)' }}></div>
                 {micAccess === 'denied' && <div className="w-full h-full absolute inset-0 flex items-center justify-center text-red-500 text-[10px] font-black uppercase tracking-wider bg-black/60">Access Denied</div>}
                 {!micAccess && micAccess !== 'denied' && (
                   <div className="w-full h-full absolute inset-0 flex items-center justify-center text-white/20">
@@ -245,7 +245,7 @@ const PaidTestPage: React.FC = () => {
         <button
           onClick={handleStartTest}
           disabled={!allChecksPassed}
-          className="w-full max-w-md py-4.5 bg-[#10B981] text-white font-black rounded-2xl text-base shadow-xl hover:shadow-[0_20px_40px_rgba(16,185,129,0.3)] hover:-translate-y-0.5 active:scale-95 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full max-w-md py-4.5 bg-[#10B981] text-white font-black rounded-2xl text-base shadow-xl hover:shadow-[0_20px_40px_rgba(16,185,129,0.3)] hover:-translate-y-0.5 active:scale-95 transition disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {allChecksPassed ? 'Launch Examination Portal' : 'Pass Web Checkpoints to Proceed'}
           <span className="material-symbols-rounded text-lg">arrow_forward</span>
