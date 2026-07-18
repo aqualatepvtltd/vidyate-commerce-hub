@@ -31,7 +31,7 @@ const PageLoader = () => (
       </div>
     </div>
     <span className="mt-4 text-[10px] font-black uppercase tracking-[0.2.5em] text-[#10B981] animate-pulse">
-      Loading...
+      Loading Hub...
     </span>
   </div>
 );
@@ -39,8 +39,6 @@ const PageLoader = () => (
 export default function App() {
   const [isLightMode, setIsLightMode] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
-  const [canInstall, setCanInstall] = useState(false);
 
   useEffect(() => {
     if (isLightMode) {
@@ -49,36 +47,6 @@ export default function App() {
       document.body.classList.remove('light-mode');
     }
   }, [isLightMode]);
-
-  useEffect(() => {
-    const beforeInstallHandler = (e: any) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-      setCanInstall(true);
-    };
-
-    const appInstalledHandler = () => {
-      setDeferredPrompt(null);
-      setCanInstall(false);
-    };
-
-    window.addEventListener('beforeinstallprompt', beforeInstallHandler);
-    window.addEventListener('appinstalled', appInstalledHandler);
-
-    return () => {
-      window.removeEventListener('beforeinstallprompt', beforeInstallHandler);
-      window.removeEventListener('appinstalled', appInstalledHandler);
-    };
-  }, []);
-
-  const handleInstallClick = async () => {
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    const choiceResult = await deferredPrompt.userChoice.catch(() => null);
-    setDeferredPrompt(null);
-    setCanInstall(false);
-    return choiceResult;
-  };
 
   const toggleTheme = () => {
     setIsLightMode(!isLightMode);
@@ -113,15 +81,6 @@ export default function App() {
         <Footer />
       </div>
       <Analytics />
-      {canInstall && (
-        <button
-          onClick={handleInstallClick}
-          className="fixed bottom-6 right-6 bg-[#10B981] text-white px-4 py-2 rounded-full shadow-lg z-50"
-          aria-label="Install Vidyate"
-        >
-          Add to Home Screen
-        </button>
-      )}
     </HashRouter>
   );
 }
