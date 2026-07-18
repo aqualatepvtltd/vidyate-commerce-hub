@@ -150,7 +150,7 @@ const PaidTestPage: React.FC = () => {
       />
 
       <div className="text-center mb-12">
-        <span className="text-[#10B981] font-black text-[10px] tracking-[0.3em] uppercase mb-4 block">Anti-Cheat System</span>
+  
         <h1 className="text-3xl md:text-5xl font-black mb-4 tracking-tighter animate-subtle-fade" style={{ color: 'var(--text-main)' }}>
           Evaluation Setup & Controls
         </h1>

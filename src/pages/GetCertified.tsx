@@ -12,7 +12,7 @@ const GetCertified: React.FC = () => {
   const filters = [
     { id: 'premium', label: 'Premium', color: '#ff0909' } as const,
     { id: 'advance', label: 'Advance', color: '#0bc366' } as const,
-    { id: 'basic', label: 'Basic', color: '#1f98ff' } as const,
+    { id: 'basic', label: 'Free', color: '#1f98ff' } as const,
   ];
 
   const { coursesToShow, suggestion } = useMemo(() => {
