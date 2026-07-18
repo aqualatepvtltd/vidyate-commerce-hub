@@ -15,7 +15,7 @@ export const CERTIFICATION_COURSES: CertificationCourse[] = [
     name: 'GST, Income Tax & Corporate Taxation Expert Program',
     description: 'This program is designed to provide in-depth knowledge and expertise in GST, Income Tax, and Corporate Taxation. Learn from industry experts and enhance your skills to become a proficient tax professional.',
     courseType: 'premium',
-    materialLink: 'https://drive.google.com/drive/folders/10fhMv1SHePrurTO-CMLch7l4CSATf31R?usp=drive_link',
+    materialLink: 'https://drive.google.com/drive/folders/10fhMv1SHePrurTO-CMLch7l4CSATf31R?usp=sharing',
     testLink: 'https://forms.gle/ZBgcy9bKPyASL5RM7',
   },
 ];
