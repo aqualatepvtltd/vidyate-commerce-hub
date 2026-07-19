@@ -27,7 +27,7 @@ const PageLoader = () => (
       <div className="absolute inset-0 rounded-full border-4 border-[#10B981]/10 border-t-[#10B981] animate-spin"></div>
       {/* Inner glowing pulsing orb */}
       <div className="absolute inset-2 rounded-full bg-[#10B981]/5 border border-[#10B981]/20 animate-pulse flex items-center justify-center">
-        <span className="material-symbols-rounded text-base text-[#10B981]">account_balance</span>
+        
       </div>
     </div>
     <span className="mt-4 text-[10px] font-black uppercase tracking-[0.2.5em] text-[#10B981] animate-pulse">
